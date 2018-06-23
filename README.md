@@ -15,4 +15,5 @@ On the ProjectMatchr web application, the user inputs keywords related to their 
 To complete this project, I scraped data from two data science career accelerator program websites using Python's Beautiful Soup library. My dataset includes information on program participants such as their name, degree, academic background, hiring company, and project title. Using only the project title data, 
 
 ## Interesting Findings
+![nlp_freq_chart](https://user-images.githubusercontent.com/7207786/41804676-aeb2ae72-7668-11e8-950c-640dc4c43150.png)
 
