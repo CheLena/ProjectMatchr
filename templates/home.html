@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="jumbotron text-center">
+		<h1>ProjectMatchr</h1>
+		<p class="lead">Find inspiration for unique data science project ideas</p>
+	</div>
+	{% from "includes/_formhelpers.html" import render_field %}
+	<form method="POST" action="">
+		<div class="form-group">
+			{{render_field(form.action, class_="form-control")}}
+		</div>
+		<div class="form-group">
+			{{render_field(form.topic, class_="form-control")}}
+		</div>
+		<p><input type="submit" class="btn btn-primary" value="Submit"></p>
+	</form>
+{% endblock %}

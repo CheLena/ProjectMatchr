@@ -1,0 +1,37 @@
+  {% extends 'layout.html' %}
+
+  {% block body %}
+    <div class="jumbotron text-center">
+      <h1>ProjectMatchr</h1>
+      <p class="lead">Find inspiration for unique data science project ideas</p>
+
+      <p>
+        Do you want to create an extraordinary data science product? Select keywords that describe the action that you want your product to take (e.g., recommend, map, find), as well as a topic that interests you (e.g., social media, food, sports). This tool will return a list of any matching project titles, along with a link to a presentation, github repository, blog post, profile, or video to further describe the project. Be inspired!
+      </p>
+    </div>
+  
+<form method="POST" action="/results">
+  <ul class="list-group">
+    <li class="list-group-item"> What does your project do? <select name="action">
+      <option value="Classify">Classify</option><option value="Find">Find</option>
+      <option value="Map">Map</option><option value="Optimize">Optimize</option><option value="Predict">Predict</option>
+      <option value="Recommend">Recommend</option>
+    </select></li>   
+    <li class="list-group-item"> Topic of interest: <select name="topic">
+      <option value="Books">Books</option>
+      <option value="Law Enforcement">Crime/Law Enforcement</option>
+      <option value="Data Science">Data Science</option><option value="eCommerce">ECommerce</option>
+      <option value="Finance">Finance</option>
+      <option value="Food">Food/drink</option><option value="Housing">Housing</option>
+
+      <option value="Neighborhood">Neighborhood</option><option value="Social Media">Social Media</option>
+      <option value="Sports">Sports</option><option value="Transportation">Transportation</option>
+      <option value="Travel">Travel</option>
+      <option value={"Animals","Art","Education","Games","Health","Internet","Movies","Music"}>Other</option>
+    </select></li>
+  </ul>
+          <p>
+        <button type="submit" class="btn btn-default">Get projects</button>
+    </form>
+    
+  {% endblock %}
