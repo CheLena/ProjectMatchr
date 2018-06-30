@@ -1,0 +1,88 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>ProjectMatchr</h1>
+    <p class="lead">Find inspiration for unique data science project ideas</p>
+  </div>
+  
+  
+  <!--      <a href="https://www.slideshare.net/erinbot/flatfinder?qid=3f2f0cb5-25c2-4f4b-a105-b58491b8fa54&v=&b=&from_search=1">
+        <img src="/static/images/flatfinder.jpg" alt="flatfinder" width="256" height="256">
+        <h3>Flat Finder: Find your Perfect Apartment</h3>
+              </a>
+      <h4>Similarity score: 79.4%</h4><br>
+    -->
+<!--  {% for item in title %}
+    <div class="page-content">
+      <img src="{{fig[item]}}" width="256">
+       <a href="{{site[item]}}">{{title[item]}}</a>
+      
+    </div>
+  {% endfor %}
+-->  
+  {% if title|length == 0 %}
+    <h2> There are no close matches. Here's your chance to build a unique project!</h2>
+    
+  {% elif title|length == 1 %}
+    <h2> There is just one close match. Here's your chance to build a unique project!</h2>
+    <a href="{{site[0]}}">
+      <img src="{{fig[0]}}" width="512">
+      <h3>{{title[0]}}</h3>
+              </a><br>
+
+  {% elif title|length == 2 %}
+    <h2> There are only two close matches. Here's your chance to build a unique project!</h2>
+      <a href="{{site[0]}}">
+      <img src="{{fig[0]}}" width="512">
+      <h3>{{title[0]}}</h3>
+              </a><br>
+
+      <a href="{{site[1]}}">
+      <img src="{{fig[1]}}" width="512" >
+      <h3>{{title[1]}}</h3>
+              </a><br>
+  {% else %}
+    <h1> Check out these {{title|length}} projects! </h1>
+      <a href="{{site[0]}}">
+      <img src="{{fig[0]}}" width="512">
+      <h3>{{title[0]}}</h3>
+              </a><br>
+
+      <a href="{{site[1]}}">
+      <img src="{{fig[1]}}" width="512" >
+      <h3>{{title[1]}}</h3>
+              </a><br>
+
+      <a href="{{site[2]}}">
+      <img src="{{fig[2]}}" width="512">
+      <h3>{{title[2]}}</h3>
+              </a><br>
+
+      <a href="{{site[3]}}">
+      <img src="{{fig[3]}}" width="512">
+      <h3>{{title[3]}}</h3>
+              </a><br>
+   
+    <a href="{{site[4]}}">
+      <img src="{{fig[4]}}" width="512" >
+      <h3>{{title[4]}}</h3>
+              </a><br>
+  {% endif %}
+    
+
+
+
+<!-- 
+  {% for i in title%}
+    <div class="page-content">
+      <a href="{{site[i]}}">
+      <img src="{{fig[i]}}" width="256" height="256">
+      <h3>{{title[i]}}</h3>
+              </a>
+      
+    </div>
+  {% endfor %}  
+-->
+      
+{% endblock %}
