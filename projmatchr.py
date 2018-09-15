@@ -28,11 +28,10 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 
 app = Flask(__name__)
 
-
 # create a database and query from it
 dbname = 'projects_db'
-username = 'sugac_000'
-pswd = 'Br@sw3ll'
+username = '****'
+pswd = '****'
 engine = create_engine('postgresql://%s:%s@localhost/%s'%(username,pswd,dbname))
 if not database_exists(engine.url):
     create_database(engine.url)
@@ -43,7 +42,6 @@ proj_data.to_sql('projects_table', engine, if_exists='replace')
 con = None
 con = psycopg2.connect(database = dbname, user = username, host='localhost',password=pswd)
 cur = con.cursor()
-
 
 @app.route('/')
 def home():
@@ -56,34 +54,25 @@ def home():
         #       {'name':'Travel'},{'name':'Other'}])
 
 @app.route("/results" , methods=['GET', 'POST'])
-#def query_projects(a, t):
-#    cur.execute("SELECT project FROM projects_table WHERE project_action = %s OR project_topic = %s ORDER BY sm_score DESC LIMIT 5",
-#       (a+'%', t+'%'))
-#    return cur.fetchall()
-
 
 def results():
-#  title_list = []
-#  fig_list = []
-#  sm_list = []
-#  url_list = []
 
   if request.method == 'POST':
     action = request.form.get("action")
     topic  = request.form.get("topic")
 
- # query_projects = sql_query(action, topic)
+  query_projects = sql_query(action, topic)
 
   sql_query = ("""SELECT * FROM projects_table 
     WHERE ((project_topic IN ('%s')) AND (project_action IN ('%s'))) LIMIT 5;""" %(topic, action))
-    #ORDER BY sm_score DESC LIMIT 5;""")
+    ORDER BY sm_score DESC LIMIT 5;""")
   titleSelect = pd.read_sql_query(sql_query,con).drop('index',axis=1)
   title_list= titleSelect['project']
   fig_list = 'static/images/'+titleSelect['image_ext']+'.jpg'
-  #sm_list = titleSelect['sm_score']
+  sm_list = titleSelect['sm_score']
   url_list = titleSelect['url']
 
-  return render_template('results.html', titleSelect = titleSelect, title=title_list, fig = fig_list, site=url_list)
+  return render_template('results.html', titleSelect = titleSelect, title=title_list, fig = fig_list, sm = sm_list, site=url_list)
 
 @app.route('/about')
 def about():
