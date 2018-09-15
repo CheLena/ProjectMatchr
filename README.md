@@ -24,3 +24,16 @@ In many cases, project titles were still informative when boiled down to two par
 ![nlp_freq_chart](https://user-images.githubusercontent.com/7207786/41804676-aeb2ae72-7668-11e8-950c-640dc4c43150.png)
 
 <a href="http://bit.ly/2Ix4Dfk"> Learn more </a>
+
+Many applications are no longer live. The data science programs I included in my analysis may consider providing web hosting to keep apps live and accessible. For a learning data scientist, it always helpful to be able to tinker with an application to better understand how it was built. 
+
+## With more time...  
+This project was completed within a three-week time span, with a goal of producing a functional web application. There are many additional directions this project could take. Some ideas are listed below.
+* Add in additional project info. Many projects are showcased via a <a href="http://slideshare.net">SlideShare</a> presentation or <a href="http://github.com">Github</a> repository, where additional text can be scraped that further describes the purpose, topic and methodology of a project. With more time, this information could be incorporated to better label project topics and actions, and to add in a label for project methodology (e.g., Machine Learning, NLP, RNN)
+* Add in more projects. My database covers only those project titles available from the two data science career accelerator program websites and blogs. There may be other sources that describe fellow projects. Additionally, there are other similar programs where more data science projects are completed (e.g., Metis). 
+* Explore other ways to 'match' projects. Instead of returning nothing when there are no highly simlar projects, consider lowering the threshold of similarity. Try clustering approach to find groups of similar projects. 
+* Expand labels of project topics and actions. Are projects that 'match' and 'recommend' essentially doing the same thing?
+* Does the order of the text pre-processing steps matter? Should stop words and non-alphanumeric characters be removed first? Should one lemmatize before stemming words? I found in a cursory analysis that the order does matter. 
+* Using compound nouns to transform informative bi-grams into a single noun (e.g., "machine_learning")
+* Allow for user input into a text box instead of dropdowns.
+* Add in additional links for projects with both slides and a github repository.
